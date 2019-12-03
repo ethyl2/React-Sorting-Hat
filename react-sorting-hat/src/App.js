@@ -27,8 +27,6 @@ class App extends Component {
         <header className="App-header">
           <img src={hat} className="App-logo" alt="logo" />
           <h1 className="App-title">Listen to the Sorting Hat</h1>
-          <h2>{this.state.house}</h2>
-          <h2>Are you ready?</h2>
         </header>
     
         <Route exact path='/' component={Home} />

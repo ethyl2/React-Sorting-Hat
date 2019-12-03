@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import questions from '../questions.js';
 
 const Quiz = ( { setHouse }) => {
@@ -55,7 +56,7 @@ const Quiz = ( { setHouse }) => {
                     </div>
                 )
             })}
-            <button type='submit'>Submit Your Answers</button>
+            <button type='submit'><Link to='/house'>Submit Your Answers</Link></button>
         </form>
         </div>
     )

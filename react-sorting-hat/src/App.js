@@ -4,19 +4,36 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './components/Home';
 import Quiz from './components/Quiz';
+import HouseInfo from './components/HouseInfo';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      house: 'G'
+    }
+  }
+
+  setHouse = winningHouse => {
+    console.log('in setHouse');
+    this.setState({...this.state, house: winningHouse})
+    console.log(winningHouse);
+    console.log(this.state.house);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={hat} className="App-logo" alt="logo" />
           <h1 className="App-title">Listen to the Sorting Hat</h1>
+          <h2>{this.state.house}</h2>
+          <h2>Are you ready?</h2>
         </header>
     
         <Route exact path='/' component={Home} />
-        <Route path='/quiz' component={Quiz} />
-
+        <Route path='/quiz' render={(props) => <Quiz {...props} setHouse={this.setHouse} />} />
+        <Route path='/house' render={(props) => <HouseInfo {...props} house={this.state.house} />} />
       </div>
     );
   }

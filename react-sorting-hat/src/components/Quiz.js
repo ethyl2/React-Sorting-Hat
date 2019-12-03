@@ -1,7 +1,7 @@
 import React from 'react';
 import questions from '../questions.js';
 
-const Quiz = () => {
+const Quiz = ( { setHouse }) => {
     //console.log(questions);
     //console.log('in quiz');
 
@@ -34,6 +34,7 @@ const Quiz = () => {
             winningHouse = winningHouse[randomHouse];
         }
         console.log(winningHouse);
+        setHouse(winningHouse);
     }
 
     return (

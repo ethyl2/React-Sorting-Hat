@@ -5,7 +5,7 @@
 const houseData = [
     {
         id: 'G',
-        name: 'Gryffindor',
+        name: 'gryffindor',
         founder: 'Godric Gryffindor',
         element: 'fire',
         ghost: 'Sir Nicholas de Mimsy-Porpington, also known as "Nearly Headless Nick"',
@@ -20,7 +20,7 @@ const houseData = [
     },
     {
         id: 'R',
-        name: 'Ravenclaw',
+        name: 'ravenclaw',
         founder: 'Rowena Ravenclaw',
         element: 'air',
         ghost: 'the Grey Lady, the daughter of Rowena Ravenclaw',
@@ -35,7 +35,7 @@ const houseData = [
     },
     {
         id: 'H',
-        name: 'Hufflepuff',
+        name: 'hufflepuff',
         founder: 'Helga Hufflepuff',
         element: 'earth',
         ghost: 'The Fat Friar',
@@ -50,7 +50,7 @@ const houseData = [
     },
     {
         id: 'S',
-        name: 'Slytherin',
+        name: 'slytherin',
         founder: 'Salazar Slytherin',
         element: 'water',
         ghost: 'The Bloody Baron',

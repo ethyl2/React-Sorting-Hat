@@ -33,3 +33,14 @@
   font-weight: bold;
   letter-spacing: 0.1rem;
 }
+
+.cardsBox {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.characterBox {
+  border: 1px solid black;
+  margin: 1rem;
+}

@@ -17,13 +17,24 @@ const HouseInfo = ( {house}) => {
     }, [house]);
 
     useEffect(()=> {
-        axios.get(`https://hp-api.herokuapp.com/api/characters/house/gryffindor`)
+        axios.get(`https://hp-api.herokuapp.com/api/characters/house/${correctHouseName}`)
             .then(response => {
                 console.log(response);
                 setCharacters(response.data);
             })
             .catch(err => console.log(err));
-    }, [correctHouse]);
+    }, [correctHouseName]);
+
+    const formatDate = date => {
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const dateParts = date.split("-");
+        // month is 0-based, that's why we need dataParts[1] - 1
+        const d = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
+        const curr_date = d.getDate();
+        const curr_month = d.getMonth();
+        const curr_year = d.getFullYear();
+        return (curr_date + " " + monthNames[curr_month] + " " + curr_year);
+    }
     
     return (
         <div className='houseInfo' style={{
@@ -32,8 +43,8 @@ const HouseInfo = ( {house}) => {
             borderRight: `10px solid ${correctHouse.color2}`, 
             borderBottom: `10px solid ${correctHouse.color1}`,
             }}>
-            <h1>"{correctHouse.name}!!!!" shouts the hat.</h1>
-            <h2>More About {correctHouseName}</h2>
+            <h1>"{correctHouseName}!!!!" shouts the hat.</h1>
+            <h2>More About {correctHouseName[0].toUpperCase() + correctHouseName.slice(1)}</h2>
             <p>{correctHouse.peopleType}</p>
             <p><span className='bold'>Founder:</span> {correctHouse.founder}</p>
             <p><span className='bold'>Headmaster:</span> {correctHouse.headmaster}</p>
@@ -45,15 +56,21 @@ const HouseInfo = ( {house}) => {
             <p>The entrance is {correctHouse.commonRoomEntrance}</p>
 
             <div>
-                <h2>Fellow {correctHouseName}s</h2>
-                {characters.map(character => {
-                    return (
-                        <div key={character.name}>
-                            <h3>{character.name}</h3>
-                            <img src={character.image} alt='bio pic' />
-                        </div>
-                    )
-                })}
+                <h2>Fellow {correctHouseName[0].toUpperCase() + correctHouseName.slice(1)}s</h2>
+                <div className='cardsBox'>
+                    {characters.map(character => {
+                        return (
+                            <div key={character.name} className='characterBox'>
+                                <h3>{character.name}</h3>
+                                <p><span className='bold'>Birthday: </span>{formatDate(character.dateOfBirth)}</p>
+                                {character.patronus? <p><span className='bold'>Patronus: </span>{character.patronus}</p> : null}
+                                <div className='imgContainer'>
+                                    <img src={character.image} alt='bio pic' />
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>  
         </div>
     )

@@ -61,3 +61,12 @@ button {
   padding: 0.5rem;
 }
 
+.imgContainer {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+img {
+  max-width: 100%;
+}
+

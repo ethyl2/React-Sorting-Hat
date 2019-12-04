@@ -9,8 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  padding: 1rem;
   color: white;
 }
 
@@ -26,6 +25,9 @@
 .houseInfo {
   width: 80%;
   margin: 2rem auto;
+}
+
+.houseText {
   padding: 1rem;
 }
 
@@ -39,15 +41,17 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
+  background: black;
 }
 .characterBox {
   margin: 1rem;
-  padding: 1rem;
-  width: 33%;
+  padding: 0.5rem;
+  width: 43%;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   display: flex;
   flex-flow: column nowrap;
+  justify-content: flex-start;
 
 }
 
@@ -55,6 +59,11 @@
   color: #FFFFFF;
   text-shadow: 0 0 10px #FFFFFF;
   letter-spacing: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.characterBox p {
+  margin: 0;
 }
 
 .characterBox img {

@@ -10,13 +10,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      house: 'R'
+      house: 'G'
     }
   }
 
   setHouse = winningHouse => {
     console.log('in setHouse');
-    this.setState({...this.state, house: winningHouse})
+    this.setState({house: winningHouse})
     console.log(winningHouse);
     console.log(this.state.house);
   }

@@ -56,7 +56,7 @@ const Quiz = ( { setHouse }) => {
                     </div>
                 )
             })}
-            <button type='submit'><Link to='/house'>Submit Your Answers</Link></button>
+            <button type='submit'>Submit</button>
         </form>
         </div>
     )

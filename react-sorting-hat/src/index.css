@@ -30,8 +30,11 @@ p {
 a {
   font-size: 2rem;
   text-decoration: none;
-  background: #00839B;
-  color: #EBBD16;
+  background: #F27721;
+  color: whitesmoke;
+  border: 1px solid black;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
   padding: 0.5rem;
   border-radius: 3px;
   transition: all .2s ease-in-out;
@@ -67,6 +70,10 @@ button {
 .imgContainer {
   width: 80%;
   margin: 1rem auto;
+}
+.imgContainer.icon {
+  width: 4rem;
+  display: inline-block;
 }
 
 img {

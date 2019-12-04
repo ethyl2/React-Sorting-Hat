@@ -1,5 +1,6 @@
 import React , { useEffect, useState } from 'react';
 import houseData from '../houseData';
+import CharacterBox from './CharacterBox';
 import axios from 'axios';
 
 const HouseInfo = ( {house}) => {
@@ -24,24 +25,13 @@ const HouseInfo = ( {house}) => {
             })
             .catch(err => console.log(err));
     }, [correctHouseName]);
-
-    const formatDate = date => {
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const dateParts = date.split("-");
-        // month is 0-based, that's why we need dataParts[1] - 1
-        const d = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
-        const curr_date = d.getDate();
-        const curr_month = d.getMonth();
-        const curr_year = d.getFullYear();
-        return (curr_date + " " + monthNames[curr_month] + " " + curr_year);
-    }
     
     return (
         <div className='houseInfo' style={{
-            borderTop: `10px solid ${correctHouse.color1}`,
-            borderLeft: `10px solid ${correctHouse.color2}`,
-            borderRight: `10px solid ${correctHouse.color2}`, 
-            borderBottom: `10px solid ${correctHouse.color1}`,
+            borderTop: `2rem ridge ${correctHouse.color1}`,
+            borderLeft: `2rem ridge ${correctHouse.color2}`,
+            borderRight: `2rem ridge ${correctHouse.color2}`, 
+            borderBottom: `2rem ridge ${correctHouse.color1}`,
             }}>
             <h1>"{correctHouseName}!!!!" shouts the hat.</h1>
             <h2>More About {correctHouseName[0].toUpperCase() + correctHouseName.slice(1)}</h2>
@@ -59,16 +49,7 @@ const HouseInfo = ( {house}) => {
                 <h2>Fellow {correctHouseName[0].toUpperCase() + correctHouseName.slice(1)}s</h2>
                 <div className='cardsBox'>
                     {characters.map(character => {
-                        return (
-                            <div key={character.name} className='characterBox'>
-                                <h3>{character.name}</h3>
-                                <p><span className='bold'>Birthday: </span>{formatDate(character.dateOfBirth)}</p>
-                                {character.patronus? <p><span className='bold'>Patronus: </span>{character.patronus}</p> : null}
-                                <div className='imgContainer'>
-                                    <img src={character.image} alt='bio pic' />
-                                </div>
-                            </div>
-                        )
+                        return <CharacterBox character={character} correctHouse={correctHouse} />
                     })}
                 </div>
             </div>  

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import questions from '../questions.js';
 
-const Quiz = ( { setHouse }) => {
+const Quiz = props => {
     //console.log(questions);
     //console.log('in quiz');
 
@@ -35,7 +35,9 @@ const Quiz = ( { setHouse }) => {
             winningHouse = winningHouse[randomHouse];
         }
         console.log(winningHouse);
-        setHouse(winningHouse);
+        props.setHouse(winningHouse);
+        props.history.push('/house');
+
     }
 
     return (

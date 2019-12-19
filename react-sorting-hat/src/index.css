@@ -1,5 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Philosopher|Ruslan+Display&display=swap');
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 62.5%;
+}
+
+h1 {
+  font-family: 'Ruslan Display', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #5D5E5F;
+}
+
+p { 
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+a {
+  font-size: 2rem;
+  text-decoration: none;
+  background: #F27721;
+  color: whitesmoke;
+  border: 1px solid black;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+  font-style: italic;
+  transform: scale(1.1);
+}
+
+nav {
+  width: 100%;
+  text-align: right;
+}
+nav a {
+  background: transparent;
+  border: none;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+label {
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+select {
+  margin: 1rem;
+  font-family: 'Philosopher', sans-serif;
+  padding: 0.75rem;
+}
+
+option {
+  font-size: 1rem;
+}
+
+button {
+  font-family: 'Ruslan Display', cursive;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  background: orange;
+  border: 0.5px solid gray;
+  transition: all 0.2 ease-in-out;
+}
+
+button:hover {
+  font-style: italic;
+  transform: scale(1.1);
+}
+
+.imgContainer {
+  width: 80%;
+  margin: 1rem auto;
+}
+.imgContainer.icon {
+  width: 4rem;
+  display: inline-block;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+footer {
+  background: black;
+  color: white;
+  display: flex;
+  margin-top: 1rem;
+  
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: orange;
+  background: none;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  footer {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 500px) {
+ footer {
+   flex-flow: column nowrap;
+ }
 }

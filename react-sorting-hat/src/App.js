@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import hat from './witch-hat.png';
 import './App.css';
+import { Route, NavLink } from 'react-router-dom';
+import Home from './components/Home';
+import Quiz from './components/Quiz';
+import HouseInfo from './components/HouseInfo';
+import Footer from './components/Footer';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      house: 'G'
+    }
+  }
+
+  setHouse = winningHouse => {
+    console.log('in setHouse');
+    this.setState({house: winningHouse})
+    console.log(winningHouse);
+    console.log(this.state.house);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={hat} className="App-logo" alt="logo" />
+          <h1 className="App-title">Listen to the Sorting Hat</h1>
+          <nav>
+            <NavLink to='/quiz'>Quiz</NavLink>
+            <NavLink to='/'>Home</NavLink>
+          </nav>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    
+        <Route exact path='/' component={Home} />
+        <Route path='/quiz' render={(props) => <Quiz {...props} setHouse={this.setHouse} />} />
+        <Route path='/house' render={(props) => <HouseInfo {...props} house={this.state.house} />} />
+        <Footer />
       </div>
     );
   }

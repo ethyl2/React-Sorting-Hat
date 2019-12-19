@@ -1,8 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import candle from '../images/candle.svg';
+import UIfx from 'uifx';
+import helloAudio from '../audio/hello.wav';
 
-const Home = () => {
+const Home = props => {
+
+    const hello = new UIfx (
+        helloAudio, 
+        {volume: 0.5,
+        throttleMs: 100}
+    )
+
+    const handleClick = () => {
+        hello.play();
+        props.history.push('/quiz');
+    }
+
     return(
         <div>
             <div className='imgContainer icon'>
@@ -17,7 +30,7 @@ const Home = () => {
             <p className="App-intro">
             To get started, click the button, if you are ready!
             </p>
-            <Link to='/quiz'>Put on the Hat</Link>
+            <button onClick={handleClick}>Put on the Hat</button>
             <br />
             <div className='imgContainer icon'>
                 <img src={candle} alt='candle' />

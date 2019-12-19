@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import questions from '../questions.js';
+import UIfx from 'uifx';
+import magicAudio from '../audio/magic.mp3';
 
 const Quiz = props => {
-    //console.log(questions);
-    //console.log('in quiz');
+    
+    const magic = new UIfx (
+        magicAudio, 
+        {volume: 0.5,
+        throttleMs: 100}
+    )
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -35,8 +40,9 @@ const Quiz = props => {
             winningHouse = winningHouse[randomHouse];
         }
         console.log(winningHouse);
+        magic.play();
         props.setHouse(winningHouse);
-        props.history.push('/house');
+        props.history.push('/house/');
 
     }
 

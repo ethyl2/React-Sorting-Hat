@@ -45,6 +45,17 @@ a:hover {
   transform: scale(1.1);
 }
 
+nav {
+  width: 100%;
+  text-align: right;
+}
+nav a {
+  background: transparent;
+  border: none;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
 label {
   font-size: 1.5rem;
   margin: 1rem;
@@ -65,6 +76,14 @@ button {
   font-family: 'Ruslan Display', cursive;
   font-size: 1.25rem;
   padding: 0.5rem;
+  background: orange;
+  border: 0.5px solid gray;
+  transition: all 0.2 ease-in-out;
+}
+
+button:hover {
+  font-style: italic;
+  transform: scale(1.1);
 }
 
 .imgContainer {
@@ -81,3 +100,33 @@ img {
   border-radius: 2px;
 }
 
+footer {
+  background: black;
+  color: white;
+  display: flex;
+  margin-top: 1rem;
+  
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: orange;
+  background: none;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  footer {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 500px) {
+ footer {
+   flex-flow: column nowrap;
+ }
+}

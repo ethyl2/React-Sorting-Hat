@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "name": "react-sorting-hat",
+    "builds": [{ "src": "react-sorting-hat/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "react-sorting-hat/$1" }
+    ]
+ }
+ 
